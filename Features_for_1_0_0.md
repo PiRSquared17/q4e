@@ -1,0 +1,156 @@
+# Features for 1.0.0 #
+
+This page contains the features suggested by q4e users to be included (you can contribute more [in this thread](http://groups.google.com/group/q4e-users/browse_thread/thread/260d4a7c04d3316c)) in the 1.0.0 release.
+
+It will serve for discussion and reference, although it will be eventually replaced by [tickets in the issue tracker](http://code.google.com/p/q4e/issues/list?q=milestone%3A1.0.0).
+
+## Integrate Maven and Eclipse plugins ##
+### Support for integration between Maven and Eclipse RCP/Plugins ###
+
+(Marcelo Alcantara)
+
+_Need more info_
+
+### Integrate `pom.xml` and `manifest.mf` ###
+I'd love to see integration with the maven osgi plugin and some way to integrate pom.xml and plugin.xml/manifest.mf.
+
+(Josh Suereth)
+
+_Is this done by [maven-bundle-plugin](http://felix.apache.org/site/maven-bundle-plugin-bnd.html)?_
+
+### Resolve (bundle) dependencies on poms from Eclipse Runtime ###
+
+The ability to depend on eclipse plugins from a maven-like repository (or treat your eclipse install as a maven repository)
+
+(Josh Suereth)
+
+## Open artifact search ##
+
+For v1.0.0, I would love to see our artifact search integrated with
+repository managers like archiva, etc ..
+
+(Erle Mantos)
+
+## Form based `pom.xml` editor ##
+Form-based POM editor ala Manifest editor of eclipse.
+
+(Erle Mantos)
+
+_This has been in development since, at least 0.6.0... should be out before 1.0.0_
+
+## Keyboard shortcuts ##
+I would like to see keyboard shortcuts on
+commonly used stuffs to be implemented in q4e. Developers are more on
+keyboards rather than on mouse for faster development.
+
+(Allan Ramirez)
+
+## One way to clean ##
+As long as mvn clean != Project -> Clean, I'd like to see 'clean' on
+the context menu.  Project -> Clean seems to clean only classes and
+test-classes.  In the case of war and ear packaging, they use build
+directories which do not get cleaned.  So if a dependency or some file
+is removed, it still exists in the build directory and will get
+repackaged.  A proper clean has to be run by going to execute goal.
+
+(Robert Dale)
+
+## Nexus search ##
+(Rodrigo Ruiz)
+
+_Partial integration available on 0.7.0_
+
+## Integration of commonly used eclipse plugins ##
+Integration of some commonly used eclipse plugins on project import/
+update: checkstyle-cs, PMD, findbugs, cobertura, etc. Maybe as
+optional extensions, just like the dependency viewer.
+
+When these tools are configured in the `pom.xml`, use the provided information to properly configure the eclipse plug-ins supporting those tools.
+
+In other words, integrate with PMD, Checkstyle, FindBugs... eclipse plug-ins based on information in the `pom.xml`, just like it is done for _WTP_
+
+## Maven suggestions also for site.xml files ##
+
+For skin selection
+
+(Rodrigo Ruiz)
+
+## wysiwyg editor for apt documents ##
+
+(Rodrigo Ruiz)
+
+## Multimodule import on a single project ##
+Being able to import a multimodule project in a single eclipse
+project.
+I know that this could have issues when there are weird dependencies
+in the modules and also that it won't provide good isolation between
+the modules, but I find **very** annoying when I checkout code I use for
+reference and not for developing to have to allocate dozen projects to
+it and not be able to use a single project like I do with m2eclipse.
+
+(Stefano Bagnara)
+
+## Show multi-module relationships ##
+
+This proposed feature is in keeping with the goal of providing a more
+visual nature for Maven users in Eclipse.
+
+Similar to View Dependencies, this feature would produce a graphical
+representation of the relationship between modules in a multi-module
+build. This feature would help developers to quickly understand the
+relationships involved in a multi-module build (dependency,
+inheritance and aggregation).
+
+For an example of the general nature of the graphical representation,
+please consult the article referenced below, which summarizes the
+graphical notation in Figure 7 -- A relationship graph. The graph
+includes relationships for 'depends on', 'inherits from' and
+'aggregates'.
+
+Note that this graph would only need to show module dependencies,
+since the existing View Dependencies already has addressed the general
+artifact dependency graph.
+
+The Maven 2 POM demystified
+
+> <http://www.javaworld.com/javaworld/jw-05-2006/jw-0529-maven.html>
+
+This feature would be particularly useful for someone examining a
+multi-module project build produced by others, because it would
+quickly summarize all of the relationships in a single graphical view.
+
+(Pat Podenski)
+
+## SVN issues with multi-modules ##
+
+  * When I run refactorings involving minor changes in all of the modules-projects Eclipse will do 1 commit for each module. So, first, it seems my commit is no more atomic.
+
+  * When I move/copy code between different modules-project eclipse does not correctly handle the svn cp/rm stuff to preserve my history.
+
+(Stefano Bagnara)
+
+## Duplicated autogenerated names ##
+
+  * Running the import of a multimodule already on my disk use the
+module `artifactId` as eclipse project identifier. Sometimes `artifactId`
+are identical in different projects. I found no way to tell q4e to use
+`groupId+artifactId` or to use a prefix when importing a multimodule
+project.
+
+(Stefano Bagnara).
+
+## Maven 2 POM Creation Wizard ##
+It would be nice if there was a "Maven 2 POM Creation Wizard" for
+creating an initial pom.xml file:
+File -> New -> Other -> Maven 2 Project -> Maven 2 POM Creation Wizard
+
+Additionally, the "Maven 2" context menu (in Package Explorer) is not
+available unless the project has a pom.xml file. It would be nice if
+the "Maven 2" context menu was available with the "Maven 2 POM
+Creation Wizard" as an option (the only option?).
+
+For exiting Q4E users these features are not a must, but I believe
+that new users will find this a more intuitive way to add Maven
+support to existing Java projects.
+
+(Patrick Crocker).
